@@ -1,6 +1,6 @@
-import { useState } from "react";
+import {useState} from 'react';
 
-function Square({ value, onSquareClick }) {
+function Square({value, onSquareClick}) {
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -18,9 +18,9 @@ export default function Board() {
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = "X";
+      nextSquares[i] = 'X';
     } else {
-      nextSquares[i] = "O";
+      nextSquares[i] = 'O';
     }
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
@@ -29,11 +29,11 @@ export default function Board() {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = "Winner: " + winner;
+    status = 'Winner: ' + winner;
   } else if (squares.every((square) => square !== null)) {
-    status = "Draw";
+    status = 'Draw';
   } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
+    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
 
   return (
@@ -84,7 +84,7 @@ function calculateWinner(squares) {
 
 // use Fragments (<> and </>) to WRAP multiple adjacent JSX elements
 
-/* "lifting state up" refers to moving the shared state to the closest common 
+/* "lifting state up" refers to moving the shared state to the closest common
   ancestor of components that need to share that data.
 
   When multiple components need access to the same state, instead of duplicating it in each component, you move the state to their parent component and pass it down via props. This allows the parent to control the state and ensures consistent data across all child components.
